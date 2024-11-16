@@ -1,4 +1,4 @@
-package com.riki.company.service.impl;
+package com.riki.client.service.impl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,10 +11,10 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.riki.company.form.CustomerAddressForm;
-import com.riki.company.model.Customer;
-import com.riki.company.model.CustomerAddress;
-import com.riki.company.service.CustomerAddressService;
+import com.riki.client.form.CustomerAddressForm;
+import com.riki.client.model.Customer;
+import com.riki.client.model.CustomerAddress;
+import com.riki.client.service.CustomerAddressService;
 
 @Service
 public class CustomerAddressServiceImpl implements CustomerAddressService {

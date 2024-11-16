@@ -1,12 +1,9 @@
-package com.riki.company.controller;
+package com.riki.client.controller;
 
-import com.riki.company.form.CustomerForm;
-import com.riki.company.form.LoginForm;
-import com.riki.company.model.Customer;
-import com.riki.company.service.CustomerService;
-import com.riki.company.service.HomeService;
+import com.riki.client.form.LoginForm;
+import com.riki.client.service.CustomerService;
+import com.riki.client.service.HomeService;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.io.IOException;
-import java.util.List;
 
 @Controller
 public class HomeController {

@@ -1,10 +1,10 @@
-package com.riki.company;
+package com.riki.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CompanyRestClientApplicationTests {
+class OrganizationManagementFrontendApplicationTests {
 
 	@Test
 	void contextLoads() {

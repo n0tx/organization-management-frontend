@@ -1,4 +1,4 @@
-package com.riki.company.form;
+package com.riki.client.form;
 
 import java.util.List;
 

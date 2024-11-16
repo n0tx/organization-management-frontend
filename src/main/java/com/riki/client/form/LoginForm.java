@@ -1,4 +1,4 @@
-package com.riki.company.form;
+package com.riki.client.form;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

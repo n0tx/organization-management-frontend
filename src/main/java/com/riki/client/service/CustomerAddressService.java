@@ -1,10 +1,10 @@
-package com.riki.company.service;
+package com.riki.client.service;
 
 import java.util.List;
 
-import com.riki.company.form.CustomerAddressForm;
-import com.riki.company.model.Customer;
-import com.riki.company.model.CustomerAddress;
+import com.riki.client.form.CustomerAddressForm;
+import com.riki.client.model.Customer;
+import com.riki.client.model.CustomerAddress;
 
 public interface CustomerAddressService {
 

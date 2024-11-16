@@ -1,9 +1,9 @@
-package com.riki.company.service;
+package com.riki.client.service;
 
 import java.util.List;
 
-import com.riki.company.form.CustomerForm;
-import com.riki.company.model.Customer;
+import com.riki.client.form.CustomerForm;
+import com.riki.client.model.Customer;
 
 public interface CustomerService {
 

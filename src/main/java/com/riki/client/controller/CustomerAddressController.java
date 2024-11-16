@@ -1,4 +1,4 @@
-package com.riki.company.controller;
+package com.riki.client.controller;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.riki.company.form.CustomerAddressForm;
-import com.riki.company.model.CustomerAddress;
-import com.riki.company.service.CustomerAddressService;
-import com.riki.company.service.CustomerService;
+import com.riki.client.form.CustomerAddressForm;
+import com.riki.client.model.CustomerAddress;
+import com.riki.client.service.CustomerAddressService;
+import com.riki.client.service.CustomerService;
 
 @Controller
 public class CustomerAddressController {

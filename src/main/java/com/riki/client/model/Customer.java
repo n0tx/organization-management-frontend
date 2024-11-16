@@ -1,17 +1,18 @@
-package com.riki.company.form;
+package com.riki.client.model;
 
+import java.util.List;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class RegisterForm {
-	
+public class Customer {
+
 	private Long id;
 	
-	@NotBlank(message = "customer name must not blank")
 	private String customerName;
+	
+	private List<CustomerAddress> addresses;
 
 }

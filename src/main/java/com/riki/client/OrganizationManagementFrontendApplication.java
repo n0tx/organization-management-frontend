@@ -1,4 +1,4 @@
-package com.riki.company;
+package com.riki.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class CompanyRestClientApplication {
+public class OrganizationManagementFrontendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CompanyRestClientApplication.class, args);
+		SpringApplication.run(OrganizationManagementFrontendApplication.class, args);
 	}
 
 	@Bean

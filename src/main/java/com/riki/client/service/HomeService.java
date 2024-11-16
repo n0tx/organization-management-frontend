@@ -1,11 +1,6 @@
-package com.riki.company.service;
+package com.riki.client.service;
 
-import com.riki.company.form.CustomerForm;
-import com.riki.company.form.LoginForm;
-import com.riki.company.model.Customer;
-import com.riki.company.model.User;
-
-import java.util.List;
+import com.riki.client.form.LoginForm;
 
 public interface HomeService {
 

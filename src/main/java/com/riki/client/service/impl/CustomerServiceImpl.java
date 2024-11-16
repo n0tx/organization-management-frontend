@@ -1,4 +1,4 @@
-package com.riki.company.service.impl;
+package com.riki.client.service.impl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,9 +11,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.riki.company.form.CustomerForm;
-import com.riki.company.model.Customer;
-import com.riki.company.service.CustomerService;
+import com.riki.client.form.CustomerForm;
+import com.riki.client.model.Customer;
+import com.riki.client.service.CustomerService;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {

@@ -1,23 +1,12 @@
-package com.riki.company.service.impl;
+package com.riki.client.service.impl;
 
-import com.riki.company.form.CustomerForm;
-import com.riki.company.form.LoginForm;
-import com.riki.company.model.Customer;
-import com.riki.company.model.CustomerAddress;
-import com.riki.company.model.User;
-import com.riki.company.service.HomeService;
+import com.riki.client.form.LoginForm;
+import com.riki.client.model.User;
+import com.riki.client.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class HomeServiceImpl implements HomeService {
