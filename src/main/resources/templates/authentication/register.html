@@ -46,6 +46,11 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
+                                        <div id="flashMessage" th:if="${message}">
+                                            <p th:text="${message}" style="color: green; font-size: medium;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                     </div>
                                     <form method="POST" th:action="@{/register}" th:id="register" th:object="${registerForm}" class="user">

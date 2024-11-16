@@ -14,6 +14,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class HomeController {
@@ -61,13 +62,14 @@ public class HomeController {
 	public String register(@ModelAttribute("registerForm") @Valid RegisterForm registerForm,
 						BindingResult bindingResult,
 						Errors errors,
-						Model model) {
+						Model model, RedirectAttributes redirectAttributes) {
 		if (errors.hasErrors()) {
 			model.addAttribute("registerForm", registerForm);
 			return "authentication/register";
 		}
 		homeService.register(registerForm);
-		return "redirect:/customer/list";
+		redirectAttributes.addFlashAttribute("message", "Account successfully registered!");
+		return "redirect:/register";
 	}
 
 	@GetMapping("/login/google")
