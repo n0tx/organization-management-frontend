@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="eng"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{fragments/main_layout}">
+<body>
+	<div layout:fragment="content">
+		<div class="card o-hidden border-o shadow-lg my-5">
+			<div class="card-body p-0">
+				<div class="row">
+
+					<div class="col-lg-12">
+						<div class="p-5">
+							<div class="text-left">
+								<h1 class="h4 text-gray-900 mb-5">New Address</h1>
+							</div>
+							<form method="POST" th:action="@{/custaddress/new}"
+								th:object="${custAddressForm}">
+								<div class="form-group row">
+									<div class="col-sm-2">Address</div>
+									<div class="col-sm-8 mb-sm-0">
+										<textarea name="address" th:field="*{address}"
+											rows="5" cols="20" class="form-control form-control-user">
+											</textarea>
+											<small class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></small>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-2">
+										<label for="province">Province</label>
+									</div>
+									<div class="col-sm-8 mb-sm-0">
+										<select class="form-control" th:field="*{province}">
+											<option value="" selected="selected">Select Province</option>
+											<option th:each="province:${provinces}" th:value="${province}" th:text="${province}"></option>
+										</select>
+										<small class="text-danger" th:if="${#fields.hasErrors('province')}" th:errors="*{province}"></small> 
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-2">
+										<label for="customerId">Customer</label>
+									</div>
+									<div class="col-sm-8 mb-sm-0">
+										<select class="form-control" th:field="*{customerId}">
+											<option value="" selected="selected">Select Customer</option>
+											<option th:each="customer:${customers}" th:value="${customer.id}" th:text="${customer.customerName}"></option>
+										</select>
+										<small class="text-danger" th:if="${#fields.hasErrors('customerId')}" th:errors="*{customerId}"></small> 
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-2"></div>
+									<div class="col-sm-8 mb-sm-0">
+										<input type="submit" value="Submit" class="btn btn-success">
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
