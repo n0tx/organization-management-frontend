@@ -54,7 +54,7 @@
                                             <small class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> </small>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" th:field="*{password}" class="form-control form-control-user" id="password" placeholder="Password" onkeypress="submitOnEnter(event)">
+                                            <input type="password" th:field="*{password}" class="form-control form-control-user" id="password" placeholder="Password" onkeypress="submitOnEnterLogin(event)">
                                             <small class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> </small>
                                         </div>
                                         <div class="form-group">
@@ -79,7 +79,7 @@
 <!--                                    </form>-->
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" th:href="@{/}">Create an Account!</a>
+                                        <a class="small" th:href="@{/register}">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>

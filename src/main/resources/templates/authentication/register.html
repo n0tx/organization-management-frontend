@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0072)https://startbootstrap.github.io/startbootstrap-sb-admin-2/register.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="eng" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Register</title>
+    <title>Register</title>
 
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -26,58 +27,62 @@
 
     <div class="container">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                    <div class="col-lg-7">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                                <div class="p-5">
+                                    <form class="user">
+                                        <img src="img/images.png" style="display: block; margin-left: auto; margin-right: auto;" width="400" height="350">
+                                    </form>
+                                </div>
                             </div>
-                            <form class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
+                                    <form method="POST" th:action="@{/register}" th:id="register" th:object="${registerForm}" class="user">
+                                        <div class="form-group">
+                                            <input type="text" th:field="*{name}" class="form-control form-control-user" id="name" placeholder="FullName">
+                                            <small class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> </small>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" th:field="*{email}" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Email Address">
+                                            <small class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> </small>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" th:field="*{password}" class="form-control form-control-user" id="password" placeholder="Password" onkeypress="submitOnEnterRegister(event)">
+                                            <small class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> </small>
+                                        </div>
+                                        <a href="javascript:void(0);" onclick="document.getElementById('register').submit();" class="btn btn-primary btn-user btn-block">
+                                            Register Account
+                                        </a>
+                                    </form>
+                                    <hr>
+                                    <form method="GET" th:action="@{/login/google}" th:id="loginGoogle" class="user">
+                                        <a href="javascript:void(0);" onclick="document.getElementById('loginGoogle').submit();" class="btn btn-google btn-user btn-block">
+                                            <i class="fab fa-google fa-fw"></i> Register with Google
+                                        </a>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" th:href="@{/}">Already have an account? Login!</a>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
-                                    </div>
-                                </div>
-                                <a href="https://startbootstrap.github.io/startbootstrap-sb-admin-2/login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
-                                <hr>
-                                <a href="https://startbootstrap.github.io/startbootstrap-sb-admin-2/index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="https://startbootstrap.github.io/startbootstrap-sb-admin-2/index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
-                            </form>
-                            <hr>
-                            <div class="text-center">
-                                <a class="small" href="https://startbootstrap.github.io/startbootstrap-sb-admin-2/forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="https://startbootstrap.github.io/startbootstrap-sb-admin-2/login.html">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
+
         </div>
 
     </div>
@@ -91,6 +96,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/js/sb-admin-2.min.js"></script>
+
+    <!-- Internal utils custom scripts for login pages-->
+    <script src="/js/utils.js"></script>
 
 
 
