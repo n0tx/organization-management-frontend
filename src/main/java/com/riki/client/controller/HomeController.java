@@ -2,7 +2,6 @@ package com.riki.client.controller;
 
 import com.riki.client.form.LoginForm;
 import com.riki.client.form.RegisterForm;
-import com.riki.client.service.CustomerService;
 import com.riki.client.service.HomeService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -18,9 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class HomeController {
-
-	@Autowired
-	private CustomerService customerService;
 
 	@Autowired
 	private HomeService homeService;
@@ -48,7 +44,7 @@ public class HomeController {
 			return "authentication/login";
 		}
 		homeService.login(loginForm);
-		return "redirect:/customer/list";
+		return "redirect:/employee/list";
 	}
 
 	@GetMapping("/register")

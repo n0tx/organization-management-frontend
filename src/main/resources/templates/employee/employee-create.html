@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="eng"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/main_layout}">
+<body>
+<div layout:fragment="content">
+    <div class="container-xl px-4 mt-4">
+        <div id="flashMessage" th:if="${message}">
+            <p th:text="${message}" style="color: green; font-size: medium;"></p>
+        </div>
+        <!-- Pesan Flash -->
+        <div class="row">
+            <div class="col-xl-4">
+                <!-- Profile picture card-->
+                <div class="card mb-4 mb-xl-0">
+                    <div class="card-header">Profile Picture</div>
+                    <div class="card-body text-center">
+                        <form method="POST" th:action="@{/upload}" th:object="${employeeForm}" enctype="multipart/form-data">
+
+<!--                            <img class="img-account-profile rounded-circle mb-2" th:src="*{urlPicture != null ? urlPicture : '/img/undraw_profile.svg'}" alt="Image Profile">-->
+                            <img class="img-account-profile rounded-circle mb-2" th:src="*{urlPicture != null && !urlPicture.isEmpty() ? urlPicture : '/img/undraw_profile.svg'}" alt="Image Profile">
+
+                            <!-- Profile picture help block-->
+                            <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+
+                            <div class="col-sm-8 mb-3 mb-sm-0">
+                                <input name="file" type="file" id="file" onchange="toggleUploadButton()">
+                            </div>
+
+                            <!-- Profile picture upload button-->
+                            <div class="mt-0 mb-4"></div>
+                            <hr class="mt-0 mb-4">
+                            <button id="uploadButton" class="btn btn-success" type="submit" disabled>Upload new image</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-8">
+                <div class="card mb-4">
+                    <div class="card-header">Employee Details</div>
+                    <div class="card-body">
+                        <form method="POST" th:action="@{/employee/new}"
+                              th:object="${employeeForm}">
+                            <input type="hidden" name="urlPicture" th:value="*{urlPicture}"/>
+                            <div class="form-group row">
+                                <div class="col-sm-2">Full Name</div>
+                                <div class="col-sm-8 mb-3 mb-sm-0">
+                                    <input name="fullname" type="text" th:field="*{fullname}"
+                                           class="form-control form-control-user"> <small
+                                        class="text-danger" th:if="${#fields.hasErrors('fullname')}"
+                                        th:errors="*{fullname}"></small>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-2">Email</div>
+                                <div class="col-sm-8 mb-3 mb-sm-0">
+                                    <input name="email" type="text" th:field="*{email}"
+                                           class="form-control form-control-user"> <small
+                                        class="text-danger" th:if="${#fields.hasErrors('email')}"
+                                        th:errors="*{email}"></small>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-2">Birth Date</div>
+                                <div class="col-sm-8 mb-sm-0">
+                                    <input name="birthDate" type="date" th:field="*{birthDate}"
+                                           class="form-control form-control-user">
+                                    <small class="text-danger" th:if="${#fields.hasErrors('birthDate')}"
+                                           th:errors="*{birthDate}"></small>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-2">Phone Number</div>
+                                <div class="col-sm-8 mb-3 mb-sm-0">
+                                    <input name="phoneNumber" type="text" th:field="*{phoneNumber}"
+                                           class="form-control form-control-user"> <small
+                                        class="text-danger" th:if="${#fields.hasErrors('phoneNumber')}"
+                                        th:errors="*{phoneNumber}"></small>
+                                </div>
+                            </div>
+                            <div class="mt-0 mb-4"></div>
+                            <div class="form-group row">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-8 mb-sm-0">
+                                    <input type="submit" value="Save changes" class="btn btn-success">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

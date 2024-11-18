@@ -1,3 +1,9 @@
+
+if (window.location.hostname === "localhost" && window.location.pathname === "/") {
+    document.getElementById("email").value = "riki@mail.com";
+    document.getElementById("password").value = "12345";
+}
+
 // Sembunyikan elemen setelah 5 detik
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
@@ -20,5 +26,17 @@ function submitOnEnterRegister(event) {
     if (event.key === "Enter") {
         event.preventDefault(); // Prevent the default action of the Enter key
         document.getElementById("register").submit(); // Submit the form
+    }
+}
+
+function toggleUploadButton() {
+    const fileInput = document.getElementById("file");
+    const uploadButton = document.getElementById("uploadButton");
+
+    // Periksa apakah ada file yang dipilih
+    if (fileInput.files && fileInput.files.length > 0) {
+        uploadButton.disabled = false; // Aktifkan tombol
+    } else {
+        uploadButton.disabled = true; // Nonaktifkan tombol
     }
 }
