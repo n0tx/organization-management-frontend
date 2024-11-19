@@ -15,7 +15,7 @@
 			<div class="col-xl-4">
 				<!-- Profile picture card-->
 				<div class="card mb-4 mb-xl-0">
-					<div class="card-header">Profile Picture - Update</div>
+					<div class="card-header">Profile Picture</div>
 					<div class="card-body text-center">
 						<form method="POST" th:action="@{/upload}" th:object="${employeeForm}" enctype="multipart/form-data">
 							<input type="hidden" name="id" th:value="*{id}"/>
