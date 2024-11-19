@@ -47,6 +47,10 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <!-- Tampilkan pesan error -->
+                                        <div th:if="${loginMessage}" class="alert alert-danger">
+                                            <span th:text="${loginMessage}"></span>
+                                        </div>
                                     </div>
                                     <form method="POST" th:action="@{/}" th:id="login" th:object="${loginForm}" class="user">
                                         <div class="form-group">
@@ -74,9 +78,6 @@
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
                                     </form>
-<!--                                    <form class="user">-->
-<!--                                        <a th:href="@{/login/google}" class="btn btn-google btn-user btn-block"><i class="fab fa-google fa-fw"></i>Login with Google</a>-->
-<!--                                    </form>-->
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" th:href="@{/register}">Create an Account!</a>
@@ -104,7 +105,7 @@
     <script src="/js/sb-admin-2.min.js"></script>
 
     <!-- Internal utils custom scripts for login pages-->
-    <script src="/js/utils.js"></script>
+    <script src="/js/login.js"></script>
 
 
 

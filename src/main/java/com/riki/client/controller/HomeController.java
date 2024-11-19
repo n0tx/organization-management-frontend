@@ -39,11 +39,20 @@ public class HomeController {
 						BindingResult bindingResult,
 						Errors errors,
 						Model model) {
+
 		if (errors.hasErrors()) {
 			model.addAttribute("loginForm", loginForm);
 			return "authentication/login";
 		}
-		homeService.login(loginForm);
+
+		try {
+			homeService.login(loginForm);
+		} catch (RuntimeException ex) {
+			model.addAttribute("loginForm", loginForm);
+			model.addAttribute("loginMessage", "Username or password is incorrect");
+			return "authentication/login";
+		}
+
 		return "redirect:/employee/list";
 	}
 

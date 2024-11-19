@@ -7,6 +7,7 @@ import com.riki.client.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 @Service
@@ -23,7 +24,12 @@ public class HomeServiceImpl implements HomeService {
 		User user = new User();
 		user.setEmail(loginForm.getEmail());
 		user.setPassword(loginForm.getPassword());
-		restTemplate.postForObject(apiUrl + "/user/login/local", user, User.class);
+
+		try {
+			restTemplate.postForObject(apiUrl + "/user/login/local", user, User.class);
+		} catch (HttpClientErrorException ex) {
+			throw new RuntimeException(ex.getResponseBodyAsString());
+		}
 	}
 
 	@Override
