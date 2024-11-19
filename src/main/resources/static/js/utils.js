@@ -6,6 +6,16 @@
 
 // Sembunyikan elemen setelah 5 detik
 document.addEventListener("DOMContentLoaded", function() {
+    // input search hanya muncul pada list
+    const currentPath = window.location.pathname;
+    const searchForm = document.getElementById("search");
+
+    if (currentPath === "/employee/list") {
+        searchForm.classList.remove("d-none");
+    } else {
+        searchForm.classList.add("d-none");
+    }
+
     setTimeout(function() {
         const messageDiv = document.getElementById("flashMessage");
         if (messageDiv) messageDiv.style.display = "none";
