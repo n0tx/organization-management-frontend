@@ -1,8 +1,8 @@
 
-if (window.location.hostname === "localhost" && window.location.pathname === "/") {
-    document.getElementById("email").value = "riki@mail.com";
-    document.getElementById("password").value = "12345";
-}
+//if (window.location.hostname === "localhost" && window.location.pathname === "/") {
+//    document.getElementById("email").value = "riki@mail.com";
+//    document.getElementById("password").value = "12345";
+//}
 
 // Sembunyikan elemen setelah 5 detik
 document.addEventListener("DOMContentLoaded", function() {
